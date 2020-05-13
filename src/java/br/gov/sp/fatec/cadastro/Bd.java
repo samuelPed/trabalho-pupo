@@ -15,7 +15,7 @@ public class Bd {
     private static ArrayList<Cliente> uc;
     private static ArrayList<Fornecedor> uf;
     
-    public static ArrayList<Cliente> getUsers()
+    public static ArrayList<Cliente> getCliente()
     {
         if(uc == null)
         {
@@ -35,7 +35,7 @@ public class Bd {
         
         return uc;
     }
-    public static ArrayList<Fornecedor> getUser()
+    public static ArrayList<Fornecedor> getFornecedor()
     {
         if(uf == null)
         {

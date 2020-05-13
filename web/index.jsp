@@ -12,9 +12,9 @@
         <title>Bem-Vindo ao Sistema de Controle </title>
     </head>
     <body>
-        <h1>Users Web App</h1>
+        <h1>Controle Web App</h1>
         <h2>Inicio</h2>
-        <h3><a href="cliente/listar.jsp">CLIENTE</a></h3>
-        <h3><a href="fornecedor/listar.jsp">FORNECEDOR</a></h3>
+        <h3><a href="Cliente/listar.jsp">CLIENTE</a></h3>
+        <h3><a href="Fornecedor/listar.jsp">FORNECEDOR</a></h3>
     </body>
 </html>

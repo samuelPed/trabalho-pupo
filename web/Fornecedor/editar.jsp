@@ -4,14 +4,85 @@
     Author     : extra
 --%>
 
+<%@page import="br.gov.sp.fatec.cadastro.Bd"%>
+<%@page import="br.gov.sp.fatec.cadastro.Fornecedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    String error = null;
+    Fornecedor fornecedor = null;
+    int i = -1;
+    if (request.getParameter("i") != null) {
+        i = Integer.parseInt(request.getParameter("i"));
+        fornecedor = Bd.getFornecedor().get(i);
+        if (fornecedor == null) {
+            error = "Inidice invalido ";
+        } else if (request.getParameter("editar") != null) {
+            String nome = request.getParameter("nome");
+            String razaoSocial = request.getParameter("razaoSocial");
+            String email = request.getParameter("email");
+            String endereco = request.getParameter("endereco");
+            int cnpj = Integer.parseInt(request.getParameter("cnpj"));
+            int telefone = Integer.parseInt(request.getParameter("telefone"));
+            if (nome.isEmpty()) {
+                error = "Nome invalido!";
+            } else if (razaoSocial.isEmpty()) {
+                error = "Razão Social invalido";
+            } else if (email.isEmpty()) {
+                error = "Email invalido";
+            } else if (endereco.isEmpty()) {
+                error = "Endereço invalido";
+            } else if (cnpj < 0) {
+                error = "CNPJ invalido";
+            } else {
+                if (telefone < 0) {
+                    error = "Telefone invalido";
+                } else {
+                    Fornecedor editadoFornecedor = new Fornecedor();
+                    editadoFornecedor.setNome(nome);
+                    editadoFornecedor.setRazaoSocial(razaoSocial);
+                    editadoFornecedor.setEmail(email);
+                    editadoFornecedor.setEndereco(endereco);
+                    editadoFornecedor.setCnpj(cnpj);
+                    editadoFornecedor.setTelefone(telefone);
+                    Bd.getFornecedor().set(i, editadoFornecedor);
+
+                    response.sendRedirect("listar.jsp");
+                }
+            }
+        } else {
+            error = "indice invalido ";
+        }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Editar Fornecedor Web</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Fornecedor Web App</h1>
+        <h2> <a href="list.jsp">Usuários</a></h2>
+        <h3>Editar</h3>
+        <%if (error != null) {%>
+        <div style="color:red"><%=error%></div>
+        <%} else {%>
+
+        <form method="post">
+            <input type="hidden" name="i" value="<%=i%>"/>
+            Nome do Fornecedor: <br/>
+            <input type="text" name="nome" value="<%=fornecedor.getNome()%>"/><br/>
+            Razão Social: <br/>
+            <input type="text" name="razaoSocial" value="<%=fornecedor.getRazaoSocial()%>"/><br/>
+            Email do Fornecedor: <br/>
+            <input type="email" name="email" value="<%=fornecedor.getEmail()%>"/><br/>
+            Endereço do Fornecedor: <br/>
+            <input type="text" name="endereco" value="<%=fornecedor.getEndereco()%>"/><br/>
+            CNPJ do Fornecedor: <br/>
+            <input type="number" name="cnpj" value="<%=fornecedor.getCnpj()%>"/><br/>
+            Telefone do Fornecedor: <br/>
+            <input type="number" name="telefone" value="<%=fornecedor.getTelefone()%>"/><br/>
+            <input type="submit" name="editar" value="Editar"/><br/>
+        </form>
     </body>
 </html>
