@@ -16,21 +16,12 @@
             String razaoSocial = request.getParameter("razaoSocial");
             String email = request.getParameter("email");
             String endereco = request.getParameter("endereco");
-            int cnpj = Integer.parseInt(request.getParameter("cnpj"));
-            int telefone = Integer.parseInt(request.getParameter("telefone"));
-            if (nome.isEmpty()) {
-                erro = "Nome invalido!";
-            } else if (razaoSocial.isEmpty()) {
-                erro = "Razão Social  invalido";
-            } else if (email.isEmpty()) {
-                erro = "Email invalido";
-            } else if (endereco.isEmpty()) {
-                erro = "Endereço invalido";
-            } else if (cnpj < 0) {
-                erro = "CNPJ invalido";
-            } else {
-                if (telefone < 0) {
-                    erro = "Telefone invalido";
+            String cnpj = request.getParameter("cnpj");
+            String telefone = request.getParameter("telefone");
+            if (nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || endereco.isEmpty() || cnpj.isEmpty() || telefone.isEmpty()) {
+                %>
+                        <h3>Campo vazio, por favor preencha todos os campos corretamente!</h3>
+          <%
                 } else {
                     Fornecedor fornecedor = new Fornecedor();
                     fornecedor.setNome(nome);
@@ -44,8 +35,8 @@
                     response.sendRedirect("listar.jsp");
                 }
             }
-        }
-    }
+        
+    
 %>
 
 <html>

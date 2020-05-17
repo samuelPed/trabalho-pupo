@@ -14,8 +14,8 @@ public class Fornecedor {
     private String razaoSocial;
     private String email;
     private String endereco;
-    private int cnpj;
-    private int telefone;
+    private String cnpj;
+    private String telefone;
 
     public String getNome() {
         return nome;
@@ -49,19 +49,19 @@ public class Fornecedor {
         this.endereco = endereco;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
     

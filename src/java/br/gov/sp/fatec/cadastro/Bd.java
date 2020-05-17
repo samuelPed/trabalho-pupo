@@ -24,9 +24,9 @@ public class Bd {
             usuario_cliente.setNome("Administrador do Sistema");
             usuario_cliente.setCpf("411.889.967-14");
             usuario_cliente.setEndereco("Rua Antonio Peixoto");
-            usuario_cliente.setRg(123456789);
+            usuario_cliente.setRg("123456789");
             usuario_cliente.setEmail("admon@empresa.com");
-            usuario_cliente.setTelefone(123456789);
+            usuario_cliente.setTelefone("123456789");
             
             
             uc.add(usuario_cliente);
@@ -44,9 +44,9 @@ public class Bd {
             usuario_fornecedor.setNome("Administrador do Sistema");
             usuario_fornecedor.setRazaoSocial("411.889.967-14");
             usuario_fornecedor.setEndereco("Rua Antonio Peixoto");
-            usuario_fornecedor.setCnpj(123456789);
+            usuario_fornecedor.setCnpj("411.889.967-14");
             usuario_fornecedor.setEmail("admon@empresa.com");
-            usuario_fornecedor.setTelefone(123456789);
+            usuario_fornecedor.setTelefone("411.889.967-14");
             
             
             uf.add(usuario_fornecedor);

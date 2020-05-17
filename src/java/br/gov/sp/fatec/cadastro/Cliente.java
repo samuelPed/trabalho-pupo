@@ -14,8 +14,8 @@ public class Cliente {
    private String cpf;
    private String email;
    private String endereco;
-   private int rg;
-   private int telefone;
+   private String rg;
+   private String telefone;
 
     public String getNome() {
         return nome;
@@ -49,19 +49,19 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
    

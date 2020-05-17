@@ -23,22 +23,11 @@
             String razaoSocial = request.getParameter("razaoSocial");
             String email = request.getParameter("email");
             String endereco = request.getParameter("endereco");
-            int cnpj = Integer.parseInt(request.getParameter("cnpj"));
-            int telefone = Integer.parseInt(request.getParameter("telefone"));
-            if (nome.isEmpty()) {
+            String cnpj = request.getParameter("cnpj");
+            String telefone = request.getParameter("telefone");
+            if ((nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || endereco.isEmpty() || cnpj.isEmpty() || telefone.isEmpty())) {
                 error = "Nome invalido!";
-            } else if (razaoSocial.isEmpty()) {
-                error = "Razão Social invalido";
-            } else if (email.isEmpty()) {
-                error = "Email invalido";
-            } else if (endereco.isEmpty()) {
-                error = "Endereço invalido";
-            } else if (cnpj < 0) {
-                error = "CNPJ invalido";
             } else {
-                if (telefone < 0) {
-                    error = "Telefone invalido";
-                } else {
                     Fornecedor editadoFornecedor = new Fornecedor();
                     editadoFornecedor.setNome(nome);
                     editadoFornecedor.setRazaoSocial(razaoSocial);
@@ -51,6 +40,7 @@
                     response.sendRedirect("listar.jsp");
                 }
             }
+    
         } else {
             error = "indice invalido ";
         }
@@ -84,5 +74,6 @@
             <input type="number" name="telefone" value="<%=fornecedor.getTelefone()%>"/><br/>
             <input type="submit" name="editar" value="Editar"/><br/>
         </form>
+            <%} %>
     </body>
 </html>

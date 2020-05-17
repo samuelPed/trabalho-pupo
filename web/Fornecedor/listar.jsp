@@ -39,11 +39,13 @@
                 <td>
                     <% int i = Bd.getFornecedor().indexOf(fornecedor); %>  
                     <a href="editar.jsp?i=<%=i%>">Alterar</a><br/>
-                    <a href="deletar.jsp?=<%=i%>">Excluir</a><br/>                                    
+                    <a href="deletar.jsp?i=<%=i%>">Excluir</a><br/>                                    
                     <a href="novo.jsp?=<%=i%>">Novo Fornecedor</a><br/>
                 </td>
             </tr>
             <%}%>
         </table>
+        <h3><a href="WEB-INF/index.jsp">HOME</a></h3>
     </body>
+    
 </html>

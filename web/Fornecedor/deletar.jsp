@@ -13,20 +13,40 @@
     String erro = null;
     Fornecedor fornecedor = null;
     int i = -1;
-    if(request.getParameter("i") != null){
-        i = Integer.parseInt(request.getParameter("i"));
+
+    if(request.getParameter("i") != null ){
+            i = Integer.parseInt(request.getParameter("i"));
         fornecedor = Bd.getFornecedor().get(i);
+ 
+                    
         if(fornecedor == null){
             erro = "Inidice invalido ";
-        }else {
-            if(request.getParameter("delete") != null){
+        }else{
+            if(fornecedor != null){
+                
                 Bd.getFornecedor().remove(i);
-                response.sendRedirect("listar.jsp");
+                    response.sendRedirect("listar.jsp");
+                
             }
-        }
-    }else {
-        erro = "indice invalido ";
+           
+                
+                    
+                    
+            
+            
     }
+    }
+    
+            else{
+            
+              
+                 erro = "indice invalido000 ";
+                    }
+        
+        
+    
+       
+    
 %>
 <html>
     <head>
@@ -57,5 +77,6 @@
             <b><%=fornecedor.getTelefone()%>/></b><br/>
             <input type="submit" name="deletar" value="Excluir"/><br/>
         </form>
+            <%}%>
     </body>
 </html>
