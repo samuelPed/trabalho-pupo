@@ -10,33 +10,33 @@
 <!DOCTYPE html>
 
 <%
-        String erro = null;
-        if (request.getParameter("add") != null) {
-            String nome = request.getParameter("nome");
-            String razaoSocial = request.getParameter("razaoSocial");
-            String email = request.getParameter("email");
-            String endereco = request.getParameter("endereco");
-            String cnpj = request.getParameter("cnpj");
-            String telefone = request.getParameter("telefone");
-            if (nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || endereco.isEmpty() || cnpj.isEmpty() || telefone.isEmpty()) {
-                %>
-                        <h3>Campo vazio, por favor preencha todos os campos corretamente!</h3>
-          <%
-                } else {
-                    Fornecedor fornecedor = new Fornecedor();
-                    fornecedor.setNome(nome);
-                    fornecedor.setRazaoSocial(razaoSocial);
-                    fornecedor.setEmail(email);
-                    fornecedor.setEndereco(endereco);
-                    fornecedor.setCnpj(cnpj);
-                    fornecedor.setTelefone(telefone);
-                    Bd.getFornecedor().add(fornecedor);
+    String erro = null;
+    if (request.getParameter("add") != null) {
+        String nome = request.getParameter("nome");
+        String razaoSocial = request.getParameter("razaoSocial");
+        String email = request.getParameter("email");
+        String endereco = request.getParameter("endereco");
+        String cnpj = request.getParameter("cnpj");
+        String telefone = request.getParameter("telefone");
+        if (nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || endereco.isEmpty() || cnpj.isEmpty() || telefone.isEmpty()) {
+%>
+<h3>Campo vazio, por favor preencha todos os campos corretamente!</h3>
+<%
+        } else {
+            Fornecedor fornecedor = new Fornecedor();
+            fornecedor.setNome(nome);
+            fornecedor.setRazaoSocial(razaoSocial);
+            fornecedor.setEmail(email);
+            fornecedor.setEndereco(endereco);
+            fornecedor.setCnpj(cnpj);
+            fornecedor.setTelefone(telefone);
+            Bd.getFornecedor().add(fornecedor);
 
-                    response.sendRedirect("listar.jsp");
-                }
-            }
-        
-    
+            response.sendRedirect("listar.jsp");
+        }
+    }
+
+
 %>
 
 <html>

@@ -9,40 +9,31 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<% 
+<%
     String erro = null;
     Fornecedor fornecedor = null;
     int i = -1;
 
-    if(request.getParameter("i") != null ){
-            i = Integer.parseInt(request.getParameter("i"));
+    if (request.getParameter("i") != null) {
+        i = Integer.parseInt(request.getParameter("i"));
         fornecedor = Bd.getFornecedor().get(i);
- 
-                    
-        if(fornecedor == null){
+
+        if (fornecedor == null) {
             erro = "Inidice invalido ";
-        }else{
-            if(fornecedor != null){
-                
+        } else {
+            if (fornecedor != null) {
+
                 Bd.getFornecedor().remove(i);
-                    response.sendRedirect("listar.jsp");
-                
+                response.sendRedirect("listar.jsp");
+
             }
-           
-                
-                    
-                    
-            
-            
+
+        }
+    } else {
+
+        erro = "indice invalido000 ";
     }
-    }
-    
-            else{
-            
-              
-                 erro = "indice invalido000 ";
-                    }
-        
+
         
     
        
@@ -54,13 +45,13 @@
         <title>Deletar Fornecedor Web</title>
     </head>
     <body>
-       <h1>Fornecedor Web App</h1>
-       <h2> <a href="listar.jsp">Fornecedores</a></h2>
+        <h1>Fornecedor Web App</h1>
+        <h2> <a href="listar.jsp">Fornecedores</a></h2>
         <h3>Excluir</h3>
-        <%if (erro != null){%>
+        <%if (erro != null) {%>
         <div style="color:red"><%=erro%></div>
-        <%}else{%>
-      
+        <%} else {%>
+
         <form method="post">
             <input type="hidden" name="i" value="<%=i%>"/>
             Nome do Fornecedor: <br/>
@@ -77,6 +68,6 @@
             <b><%=fornecedor.getTelefone()%>/></b><br/>
             <input type="submit" name="deletar" value="Excluir"/><br/>
         </form>
-            <%}%>
+        <%}%>
     </body>
 </html>

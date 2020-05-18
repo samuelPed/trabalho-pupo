@@ -28,22 +28,22 @@
             if ((nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || endereco.isEmpty() || cnpj.isEmpty() || telefone.isEmpty())) {
                 error = "Nome invalido!";
             } else {
-                    Fornecedor editadoFornecedor = new Fornecedor();
-                    editadoFornecedor.setNome(nome);
-                    editadoFornecedor.setRazaoSocial(razaoSocial);
-                    editadoFornecedor.setEmail(email);
-                    editadoFornecedor.setEndereco(endereco);
-                    editadoFornecedor.setCnpj(cnpj);
-                    editadoFornecedor.setTelefone(telefone);
-                    Bd.getFornecedor().set(i, editadoFornecedor);
+                Fornecedor editadoFornecedor = new Fornecedor();
+                editadoFornecedor.setNome(nome);
+                editadoFornecedor.setRazaoSocial(razaoSocial);
+                editadoFornecedor.setEmail(email);
+                editadoFornecedor.setEndereco(endereco);
+                editadoFornecedor.setCnpj(cnpj);
+                editadoFornecedor.setTelefone(telefone);
+                Bd.getFornecedor().set(i, editadoFornecedor);
 
-                    response.sendRedirect("listar.jsp");
-                }
+                response.sendRedirect("listar.jsp");
             }
-    
-        } else {
-            error = "indice invalido ";
         }
+
+    } else {
+        error = "indice invalido ";
+    }
 %>
 <html>
     <head>
@@ -74,6 +74,6 @@
             <input type="number" name="telefone" value="<%=fornecedor.getTelefone()%>"/><br/>
             <input type="submit" name="editar" value="Editar"/><br/>
         </form>
-            <%} %>
+        <%}%>
     </body>
 </html>

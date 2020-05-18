@@ -27,25 +27,27 @@
                 <th>Telefone</th>
                 <th>Comandos</th>
             </tr>
-            <%for(Fornecedor fornecedor: Bd.getFornecedor()){%>
-            
+            <%for (Fornecedor fornecedor : Bd.getFornecedor()) {%>
+
             <tr>
-                <td><%= fornecedor.getNome() %></td>
-                <td><%= fornecedor.getRazaoSocial() %></td>
-                <td><%= fornecedor.getEmail() %></td>
-                <td><%= fornecedor.getEndereco() %></td>
-                <td><%= fornecedor.getCnpj() %></td>
-                <td><%= fornecedor.getTelefone() %></td>
+                <td><%= fornecedor.getNome()%></td>
+                <td><%= fornecedor.getRazaoSocial()%></td>
+                <td><%= fornecedor.getEmail()%></td>
+                <td><%= fornecedor.getEndereco()%></td>
+                <td><%= fornecedor.getCnpj()%></td>
+                <td><%= fornecedor.getTelefone()%></td>
                 <td>
-                    <% int i = Bd.getFornecedor().indexOf(fornecedor); %>  
+                    <% int i = Bd.getFornecedor().indexOf(fornecedor);%>  
                     <a href="editar.jsp?i=<%=i%>">Alterar</a><br/>
-                    <a href="deletar.jsp?i=<%=i%>">Excluir</a><br/>                                    
-                    <a href="novo.jsp?=<%=i%>">Novo Fornecedor</a><br/>
+                    <a href="deletar.jsp?i=<%=i%>">Excluir</a><br/>     
                 </td>
             </tr>
             <%}%>
+            <tr>
+                <th colspan="3" align="center"><a href="../index.jsp">Voltar ao inicio</a></th>
+                <th colspan="4" align="center"><a href="novo.jsp">Adicionar novo Fornecedor</a></th>
+            </tr>
         </table>
-        <h3><a href="WEB-INF/index.jsp">HOME</a></h3>
     </body>
-    
+
 </html>
