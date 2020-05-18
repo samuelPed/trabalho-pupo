@@ -41,7 +41,7 @@
     <body>
         <h1>Cliente Web App</h1>
         <h2> <a href="listar.jsp">Cliente</a></h2>
-        <h3>Excluir</h3>
+        <h3>Excluir?</h3>
         <%if (erro != null) {%>
         <div style="color:red"><%=erro%></div>
         <%} else {%>
